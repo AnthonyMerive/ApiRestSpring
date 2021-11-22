@@ -22,7 +22,7 @@ public class usuarioController {
 
     //mapeo del POST:
     @PostMapping()
-    public usuarioModel guardarUsuario(@RequestBody, usuarioModel usuario){
+    public usuarioModel guardarUsuario(@RequestBody usuarioModel usuario){
         return this.usuarioService.guardarUsuario(usuario);
     }
 }
