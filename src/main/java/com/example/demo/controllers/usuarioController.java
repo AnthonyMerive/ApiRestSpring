@@ -33,7 +33,7 @@ public class usuarioController {
         return this.usuarioService.obtenerPorId(id);
     }
 
-    @GetMapping(path = "/{query}")
+    @GetMapping(path = "/query")
     public ArrayList<usuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
@@ -42,8 +42,12 @@ public class usuarioController {
     @DeleteMapping(path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.usuarioService.eliminarUsuario(id);
-        if(ok) return "Se elimino el usuario con el ID: "+ id;
-        else return "No existe el ID, no se pudo eliminar el usuario con ID: "+id;
+        if(ok){
+            return "Se elimino el usuario con el ID: "+ id;
+        }
+        else {
+            return "No existe el ID, no se pudo eliminar el usuario con ID: " + id;
+        }
     }
 
 }
